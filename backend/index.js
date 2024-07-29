@@ -5,11 +5,12 @@ const products = require("./data/Products");
 const dotenv = require("dotenv");
 dotenv.config()
 const PORT = process.env.PORT;
+const DDBB_URL = process.env.DDBB_URL;
 
 const mongoose = require("mongoose");
 
-// connect db
-mongoose.connect("").then(() => console.log("ddbb connected!")).then((err) => {
+// connect ddbb
+mongoose.connect(DDBB_URL).then((err) => {
   err;
 });
 
