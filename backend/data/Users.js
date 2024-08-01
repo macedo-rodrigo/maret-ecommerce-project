@@ -59,7 +59,7 @@ const users = [
     name: "Sofía",
     lastName: "Díaz",
     password: bcrypt.hashSync("adminpass", 10),
-    isAdmin: true
+    isAdmin: false
   }
 ];
 

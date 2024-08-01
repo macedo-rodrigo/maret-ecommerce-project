@@ -13,7 +13,8 @@ const productSchema = mongoose.Schema(
     dimensions: { type: Number, require: true },
     stones: { type: String, require: false },
     gender: { type: String, require: false },
-  }
+  },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("Product", productSchema);
