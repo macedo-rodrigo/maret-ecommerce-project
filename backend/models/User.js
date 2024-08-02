@@ -5,6 +5,7 @@ const users = require("../data/Users");
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
+    lastName: { type: String, required: true},
     email: { type: String, requiered: true, unique: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },

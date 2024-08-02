@@ -10,7 +10,7 @@ const products = [
     material: "Oro Blanco",
     weight: "2.5g",
     dimensions: "Tamaño 7",
-    stones: "Diamante",
+    stones: ["Diamante", "Plata"],
     gender: "Mujer",
   },
   {
