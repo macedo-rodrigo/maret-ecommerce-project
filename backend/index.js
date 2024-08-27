@@ -11,6 +11,7 @@ const PORT = process.env.PORT;
 const DDBB_URL = process.env.DDBB_URL;
 
 const mongoose = require("mongoose");
+const userRoute = require("./routes/user.routes");
 
 // connect ddbb
 mongoose
@@ -22,8 +23,14 @@ mongoose
     err;
   });
 
+app.use(express.json());
+
 // database seeder routes
 app.use("/api/seed", databaseSeeder);
+
+// routes for users
+app.use("/api/users", userRoute);
+
 app.use("", (req, res) => {
   res.send("This is our API");
 });
