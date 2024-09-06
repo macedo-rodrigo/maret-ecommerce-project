@@ -27,4 +27,38 @@ userRoute.post(
   })
 );
 
+// register route
+userRoute.post('/register', AsyncHandler(async(req, res)=>{
+  const { name, email, password } = req.body;
+  const existuser = await User.findOne({ email });
+  if(existuser){
+    res.status(400);
+    throw new Error("An account was already created with this email")
+  } else{
+    const user = await User.create({
+      name,
+      lastName,
+      email,
+      password
+    })
+
+    if(user){
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        lastName: user.lastName,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        createdAt: user.createdAt,
+      });
+      res
+
+    } else {
+      res.status(400);
+      throw new Error("Invalid User Data")
+    }
+  }
+
+}))
+
 module.exports = userRoute;
