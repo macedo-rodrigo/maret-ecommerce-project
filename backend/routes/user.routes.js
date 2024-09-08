@@ -29,7 +29,7 @@ userRoute.post(
 
 // register route
 userRoute.post('/register', AsyncHandler(async(req, res)=>{
-  const { name, email, password } = req.body;
+  const { name, lastName, email, password } = req.body;
   const existuser = await User.findOne({ email });
   if(existuser){
     res.status(400);
