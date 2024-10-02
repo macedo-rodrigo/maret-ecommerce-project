@@ -5,6 +5,7 @@ const AsyncHandler = require("express-async-handler");
 // model
 const User = require("../models/User");
 const generateToken = require("../tokengenerate");
+const protect = require("../middleware/Auth");
 
 userRoute.post(
   "/login",
@@ -62,7 +63,7 @@ userRoute.post('/register', AsyncHandler(async(req, res)=>{
 }));
 
 // profile date
-userRoute.get("/profile", AsyncHandler(async(req, res)=>{
+userRoute.get("/profile", protect, AsyncHandler(async(req, res)=>{
   const user =await User.findById(req.user._id);
   if(user){
     res.json({
